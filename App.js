@@ -1,19 +1,30 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+import CreateNew from "./screens/CreateNew";
+import FollowToday from "./screens/FollowToday";
+import SubmitAsset from "./screens/SubmitAsset";
+import Inbox from "./screens/Inbox";
+import RecentSubmits from "./screens/RecentSubmits";
+
+const TabNavigator = createBottomTabNavigator({
+  CreateNew: {
+    screen: CreateNew
   },
+  FollowToday: {
+    screen: FollowToday
+  },
+  SubmitAsset: {
+    screen: SubmitAsset
+  },
+  Inbox: {
+    screen: Inbox
+  },
+  RecentSubmits: {
+    screen: RecentSubmits
+  }
 });
+
+export default createAppContainer(TabNavigator);
